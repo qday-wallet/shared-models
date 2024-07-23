@@ -77,7 +77,7 @@ export const RailgunProxyContract: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '0xeCFCf3b4eC647c4Ca6D49108b311b7a7C9543fea',
   [NetworkName.PolygonAmoy]: '0xD1aC80208735C7f963Da560C42d6BD82A8b175B5',
-  [NetworkName.QDayTestNet]: '0x030D459885Cc6D30Ee29af0d0D5ceE4a2d83115c',
+  [NetworkName.QDayTestNet]: '0x3c843B7D626beF1bC285eb34A8861338F1C5A97e',
 
 
   // Dev only
@@ -100,7 +100,7 @@ export const RelayAdaptContract: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '0x7e3d929EbD5bDC84d02Bd3205c777578f33A214D',
   [NetworkName.PolygonAmoy]: '0xc340f7E17A42154674d6B50190386C9a2982D12E',
-  [NetworkName.QDayTestNet]: '0xBa5144f943b39b64bf6fe1353A2C9334FC68c7d8',
+  [NetworkName.QDayTestNet]: '0x030D459885Cc6D30Ee29af0d0D5ceE4a2d83115c',
 
   // Dev only
   [NetworkName.Hardhat]: '0x0355B7B8cb128fA5692729Ab3AAa199C1753f726',
@@ -122,7 +122,7 @@ export const RailgunProxyDeploymentBlock: Record<NetworkName, number> = {
   // Test nets
   [NetworkName.EthereumSepolia]: 5784866,
   [NetworkName.PolygonAmoy]: 6666136,
-  [NetworkName.QDayTestNet]: 644,
+  [NetworkName.QDayTestNet]: 78,
 
   // Dev only
   [NetworkName.Hardhat]: 0,
