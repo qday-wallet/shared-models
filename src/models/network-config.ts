@@ -13,6 +13,7 @@ export enum NetworkName {
   // Testnets
   EthereumSepolia = 'Ethereum_Sepolia',
   PolygonAmoy = 'Polygon_Amoy',
+  QDayTestNet = 'QDayTestNet',
 
   // Dev only
   Hardhat = 'Hardhat',
@@ -76,6 +77,8 @@ export const RailgunProxyContract: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '0xeCFCf3b4eC647c4Ca6D49108b311b7a7C9543fea',
   [NetworkName.PolygonAmoy]: '0xD1aC80208735C7f963Da560C42d6BD82A8b175B5',
+  [NetworkName.QDayTestNet]: '0x030D459885Cc6D30Ee29af0d0D5ceE4a2d83115c',
+
 
   // Dev only
   [NetworkName.Hardhat]: '0x610178dA211FEF7D417bC0e6FeD39F05609AD788',
@@ -97,6 +100,7 @@ export const RelayAdaptContract: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '0x7e3d929EbD5bDC84d02Bd3205c777578f33A214D',
   [NetworkName.PolygonAmoy]: '0xc340f7E17A42154674d6B50190386C9a2982D12E',
+  [NetworkName.QDayTestNet]: '0xBa5144f943b39b64bf6fe1353A2C9334FC68c7d8',
 
   // Dev only
   [NetworkName.Hardhat]: '0x0355B7B8cb128fA5692729Ab3AAa199C1753f726',
@@ -118,6 +122,7 @@ export const RailgunProxyDeploymentBlock: Record<NetworkName, number> = {
   // Test nets
   [NetworkName.EthereumSepolia]: 5784866,
   [NetworkName.PolygonAmoy]: 6666136,
+  [NetworkName.QDayTestNet]: 644,
 
   // Dev only
   [NetworkName.Hardhat]: 0,
@@ -139,6 +144,7 @@ export const BaseTokenWrappedAddress: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14', // (Sepolia) WETH
   [NetworkName.PolygonAmoy]: '0x21d4Ec3C9a2408C5535ecc26a09d94dC7B7f5c10', // (Amoy) WMATIC
+  [NetworkName.QDayTestNet]: '0xC99d921E16d5bB784BBD529866c991F0f3ec97C8', // (QDayTestNet) WQDay
 
   // Dev only
   [NetworkName.Hardhat]: '0x8198f5d8F8CfFE8f9C413d98a0A55aEB8ab9FbB7', // (Hardhat) WETH
@@ -167,6 +173,7 @@ export const RailgunPoseidonMerkleAccumulatorV3Contract: Record<
   // Test nets
   [NetworkName.EthereumSepolia]: '', // TODO
   [NetworkName.PolygonAmoy]: '', // TODO
+  [NetworkName.QDayTestNet]: '', // TODO
 
   // Dev only
   [NetworkName.Hardhat]: '0x2B0d36FACD61B71CC05ab8F3D2355ec3631C0dd5',
@@ -191,6 +198,7 @@ export const RailgunPoseidonMerkleVerifierV3Contract: Record<
   // Test nets
   [NetworkName.EthereumSepolia]: '', // TODO
   [NetworkName.PolygonAmoy]: '', // TODO
+  [NetworkName.QDayTestNet]: '', // TODO
 
   // Dev only
   [NetworkName.Hardhat]: '0xfbC22278A96299D91d41C453234d97b4F5Eb9B2d',
@@ -212,6 +220,7 @@ export const RailgunTokenVaultV3Contract: Record<NetworkName, string> = {
   // Test nets
   [NetworkName.EthereumSepolia]: '', // TODO
   [NetworkName.PolygonAmoy]: '', // TODO
+  [NetworkName.QDayTestNet]: '', // TODO
 
   // Dev only
   [NetworkName.Hardhat]: '0xD84379CEae14AA33C123Af12424A37803F885889',
@@ -236,6 +245,7 @@ export const RailgunPoseidonMerkleAccumulatorV3DeploymentBlock: Record<
   // Test nets
   [NetworkName.EthereumSepolia]: 0, // TODO
   [NetworkName.PolygonAmoy]: 0, // TODO
+  [NetworkName.QDayTestNet]: 0, // TODO
 
   // Dev only
   [NetworkName.Hardhat]: 0,
@@ -562,6 +572,46 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
         NetworkName.PolygonAmoy
       ],
     supportsV3: true,
+  },
+  [NetworkName.QDayTestNet]: {
+    chain: {
+      type: ChainType.EVM,
+      id: 1001,
+    },
+    name: NetworkName.QDayTestNet,
+    publicName: 'QDayTestNet',
+    shortPublicName: 'QDayTestNet',
+    coingeckoId: 'qday',
+    baseToken: {
+      symbol: 'qday',
+      wrappedSymbol: 'wqday',
+      wrappedAddress: BaseTokenWrappedAddress[NetworkName.QDayTestNet],
+      decimals: 18,
+    },
+    proxyContract: RailgunProxyContract[NetworkName.QDayTestNet],
+    relayAdaptContract: RelayAdaptContract[NetworkName.QDayTestNet],
+    relayAdaptHistory: [
+      '0x7e3d929EbD5bDC84d02Bd3205c777578f33A214D', // TODO ?
+    ],
+    deploymentBlock: RailgunProxyDeploymentBlock[NetworkName.QDayTestNet],
+    isDevOnlyNetwork: true,
+    isTestnet: true,
+    defaultEVMGasType: EVMGasType.Type2,
+    poi: {
+      launchBlock: 5944700, // May-21-2024 12:38:00 AM +UTC // TODO ?
+      launchTimestamp: 1716309480, // Unix timestamp in seconds — May-21-2024 12:38:00 AM +UTC
+    },
+    poseidonMerkleAccumulatorV3Contract:
+      RailgunPoseidonMerkleAccumulatorV3Contract[NetworkName.QDayTestNet],
+    poseidonMerkleVerifierV3Contract:
+      RailgunPoseidonMerkleVerifierV3Contract[NetworkName.QDayTestNet],
+    tokenVaultV3Contract:
+      RailgunTokenVaultV3Contract[NetworkName.QDayTestNet],
+    deploymentBlockPoseidonMerkleAccumulatorV3:
+      RailgunPoseidonMerkleAccumulatorV3DeploymentBlock[
+        NetworkName.QDayTestNet
+      ],
+    supportsV3: false,
   },
   [NetworkName.PolygonMumbai_DEPRECATED]: {
     deprecated: true,
